@@ -8,6 +8,6 @@ int main()
 
     //acsessing element
     p.first=5;
-    p.second=5;
+    p.second="hash";
       
 }
