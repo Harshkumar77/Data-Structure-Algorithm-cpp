@@ -86,18 +86,9 @@ int main()
 {
 
     node *n = NULL;
-    // display(n);
-    insertAtTail(n, 1123);
-    // display(n);
-    insertAtTail(n, 121);
-    // display(n);
-    insertAtTail(n, 13);
-    // display(n);
-    insertAtTail(n, 11);
-    // display(n);
-    insertAtTail(n, 14);
-    // display(n);
-    insertAtTail(n, 4);
+    int a[10] = {10,9,8,7,6,5,4,3,2,1};
+    for(int x : a)
+        insertAtTail(n,x);
     display(n);
     deleteAt(n,5);
     display(n); 
