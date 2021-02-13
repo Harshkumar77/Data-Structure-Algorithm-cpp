@@ -1,7 +1,3 @@
-#include <iostream>
-#include <stack>
-using namespace std;
-
 bool is_balanced(string s)
 {
     stack<char> bracket;
@@ -28,12 +24,4 @@ bool is_balanced(string s)
     if (!bracket.empty())
         return false;
     return true;
-}
-
-int main()
-{
-    string s;
-    cin >> s;
-    cout << is_balanced(s) << '\n';
-    return 0;
 }
