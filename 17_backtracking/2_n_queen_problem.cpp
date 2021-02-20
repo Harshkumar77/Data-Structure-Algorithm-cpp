@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-isSafe(int **arr, int x, int y, int n)
+bool isSafe(int **arr, int x, int y, int n)
 {
     for (int i = 0; i < x; i++)
     {
