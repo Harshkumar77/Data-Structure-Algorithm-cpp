@@ -78,7 +78,10 @@ int main()
     {
         for (int j = 0; j < n; j++)
         {
-            cout << arr[i][j] << " ";
+            if(arr[i][j])
+                cout<<"[Q]";
+            else
+                cout<<"[ ]";
         }
         cout << '\n';
     }
