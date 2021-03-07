@@ -15,7 +15,10 @@ int prec(char a)
 
 string infix_to_postfix(string s)
 {
-
+    for (int i = 0; i < s.length(); ++i)
+    {
+        
+    }
 }
 
 int main()
