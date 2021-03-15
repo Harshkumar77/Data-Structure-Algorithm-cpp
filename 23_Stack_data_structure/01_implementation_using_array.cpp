@@ -21,12 +21,12 @@ public:
     }
     void pop()
     {
-        if(tp!=-1)
+        if (tp != -1)
             --tp;
     }
     int top()
     {
-        if(tp!=-1)
+        if (tp != -1)
             return arr[tp];
         return -1;
     }
@@ -39,7 +39,7 @@ int main()
     y.push(2);
     y.push(3);
     y.push(4);
-    y.push(5);
+    y.push(50);
     while (!y.empty())
         cout << y.top() << '\n', y.pop();
     return 0;
