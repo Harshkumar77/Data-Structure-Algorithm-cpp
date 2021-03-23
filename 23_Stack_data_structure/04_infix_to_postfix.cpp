@@ -30,7 +30,8 @@ string infix_to_postfix(string s)
                 postfix.push_back(st.top());
                 st.pop();
             }
-            st.pop();
+            if(!st.empty())
+                st.pop();
         }
         else
         {
