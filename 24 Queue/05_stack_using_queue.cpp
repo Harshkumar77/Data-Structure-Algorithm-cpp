@@ -8,7 +8,7 @@ class stack
     int N = 0;
     queue<int> q1, q2;
 
-public: 
+public:
     bool empty()
     {
         return q1.empty();
@@ -16,6 +16,7 @@ public:
     void push(int x)
     {
         q1.push(x);
+        ++N;
     }
     void pop()
     {
@@ -24,6 +25,7 @@ public:
             cout << "EMPTY";
             return;
         }
+        --N;
         while (!q1.empty())
         {
             int x = q1.front();
@@ -56,6 +58,10 @@ public:
             q1 = t;
             return x;
         }
+    }
+    int size()
+    {
+        return N;
     }
 };
 
