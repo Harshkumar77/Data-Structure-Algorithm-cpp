@@ -20,7 +20,7 @@ public:
     }
     void pop()
     {
-        if (empty())
+        if (this->empty())
         {
             cout << "EMPTY";
             return;
