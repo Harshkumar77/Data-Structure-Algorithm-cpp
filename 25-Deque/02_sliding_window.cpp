@@ -13,13 +13,14 @@ int main()
         cin >> x;
     deque<int> d;
     d.push_back(0);
-    vector<int> ans;
+    vector<int> ans(n - k + 1);
+    int filled_till_here = 0;
     for (int i = 0; i < k; i++)
     {
         if (a[i] > a[d.front()])
             d.pop_front(), d.push_back(i);
     }
-    ans.push_back(a[d.front()]);
+    ans[filled_till_here++] = (a[d.front()]);
     for (int i = k; i < n; i++)
     {
         if (i - k == d.front())
@@ -27,7 +28,7 @@ int main()
         while (!d.empty() and a[d.back()] < a[i])
             d.pop_back();
         d.push_back(i);
-        ans.push_back(a[d.front()]);
+        ans[filled_till_here++] = (a[d.front()]);
     }
     for (int x : ans)
         cout << x << ' ';
