@@ -13,6 +13,15 @@ struct node
     }
 };
 
+void inorder(node *root)
+{
+    if (root->left != NULL)
+        inorder(root->left);
+    cout << root->data << ' ';
+    if (root->right != NULL)
+        inorder(root->right);
+}
+
 int main()
 {
     /*
@@ -33,4 +42,6 @@ int main()
     root->left->right = new node(5);
     root->right = new node(3);
     root->right->left = new node(6);
+
+    inorder(root);
 }

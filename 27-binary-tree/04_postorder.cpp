@@ -13,6 +13,15 @@ struct node
     }
 };
 
+void postorder(node *root)
+{
+    if (root->left != NULL)
+        postorder(root->left);
+    if (root->right != NULL)
+        postorder(root->right);
+    cout << root->data << ' ';
+}
+
 int main()
 {
     /*
@@ -33,4 +42,6 @@ int main()
     root->left->right = new node(5);
     root->right = new node(3);
     root->right->left = new node(6);
+
+    postorder(root);
 }
