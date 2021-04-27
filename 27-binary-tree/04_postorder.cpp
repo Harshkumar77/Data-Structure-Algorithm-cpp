@@ -15,6 +15,7 @@ struct node
 
 void postorder(node *root)
 {
+    //left->right->centre
     if (root->left != NULL)
         postorder(root->left);
     if (root->right != NULL)

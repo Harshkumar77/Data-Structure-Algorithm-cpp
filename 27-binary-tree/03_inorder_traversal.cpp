@@ -15,6 +15,7 @@ struct node
 
 void inorder(node *root)
 {
+    //left->centre->right
     if (root->left != NULL)
         inorder(root->left);
     cout << root->data << ' ';

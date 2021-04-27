@@ -15,6 +15,7 @@ struct node
 
 void preorder(node *root)
 {
+    //centre->left->right
     cout << root->data << ' ';
     if (root->left != NULL)
         preorder(root->left);
