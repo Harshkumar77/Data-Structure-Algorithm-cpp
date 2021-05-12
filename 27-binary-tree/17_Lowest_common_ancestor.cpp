@@ -6,7 +6,7 @@ Time Complexity -> O(N)
 Space Complexity -> O(1)
 
 Simpler code with same complexity is given in 
-
+https://github.com/Harshkumar77/Data-Structure-Algorithm-cpp/blob/main/27-binary-tree/18_shortest_distance_bw_2_nodes.cpp
 
  **/
 #include <iostream>
