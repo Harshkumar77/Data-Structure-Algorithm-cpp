@@ -2,8 +2,8 @@
 
 Program to find lowest common ancestor in two nodes of a binary tree 
 
-Time Complexity -> O(N)
-Space Complexity -> O(1)
+Time Complexity  -> O(N)
+Space Complexity -> O(N)
 
 Simpler code with same complexity is given in 
 https://github.com/Harshkumar77/Data-Structure-Algorithm-cpp/blob/main/27-binary-tree/18_shortest_distance_bw_2_nodes.cpp
@@ -39,18 +39,20 @@ bool getPath(node *toFind, node *root, vector<node *> &path)
     {
         return true;
     }
-    vector<node *> v = path;
-    //Path being pushed in this vector
+    vector<node *> v = path; //Path being pushed in this vector
     if (root->left != NULL and getPath(toFind, root->left, path))
     {
         return true;
     }
     path = v;
+    // backtracking to the orignal path
     if (root->right != NULL and getPath(toFind, root->right, path))
     {
         return true;
     }
     path = v;
+    // backtracking to the orignal path
+
     return false;
 }
 
