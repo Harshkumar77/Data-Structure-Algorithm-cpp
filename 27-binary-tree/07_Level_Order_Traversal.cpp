@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <queue>
 using namespace std;
 
@@ -14,27 +13,20 @@ struct node
         data = val;
     }
 };
+
 void levelOrderTraversal(node *root)
 {
+    int n;
     queue<node *> q;
     q.push(root);
-    q.push(NULL);
+    node *a;
     while (!q.empty())
     {
-        node *a = q.front();
-        q.pop();
-        if (a == NULL and q.empty())
+        n = q.size();
+        for (int i = 0; i < n; i++)
         {
-            cout << '\n';
-            return;
-        }
-        else if (a == NULL and not q.empty())
-        {
-            q.push(NULL);
-            cout << '\n';
-        }
-        else
-        {
+            a = q.front();
+            q.pop();
             cout << a->data << ' ';
             if (a->left)
                 q.push(a->left);
@@ -64,6 +56,5 @@ int main()
     root->right = new node(3);
     root->right->left = new node(6);
     root->right->right = new node(7);
-
     levelOrderTraversal(root);
 }
