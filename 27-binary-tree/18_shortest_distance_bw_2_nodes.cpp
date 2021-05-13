@@ -128,4 +128,5 @@ int main()
     root->right->left->right = new node(9);
 
     cout << shortestDistance(root->right->left->right, root->left->left->right, root);
+    // distance between 8 and 9
 }
