@@ -1,6 +1,8 @@
 /**
 
-Program to find distance between two nodes of a binary tree 
+Program to flatten a binary tree in preorder manner
+but 
+-> Without using any other data structure and extra space
 
 Time Complexity -> O(N)
 Space Complexity -> O(1)
@@ -25,6 +27,12 @@ struct node
 
 void flattenBT(node *root)
 {
+    /*
+    Simple recursive algorithm
+        1. Flattening left subtree 
+        2. Flattening right subtree
+        3. Joining them in preorder manner 
+    */
     node *l = root->left, *r = root->right;
     if (l != NULL)
         flattenBT(l);
