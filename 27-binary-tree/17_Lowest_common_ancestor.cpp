@@ -82,22 +82,26 @@ int main()
     
     Creating this binary tree
     
-        1
-       / \
-      2   3
-     / \ / 
-    4  5 6  
+        *       1
+        *      / \
+        *     2   3
+        *    / \ / \
+        *   4  5 6  7
+        *  / \    \
+        * 10  8     9
     
     */
 
     node *root = new node(1);
     root->left = new node(2);
     root->left->left = new node(4);
-    node *a = root->left->left;
+    root->left->left->left = new node(10);
+    root->left->left->right = new node(8);
     root->left->right = new node(5);
-    node *b = root->left->right;
     root->right = new node(3);
+    root->right->right = new node(7);
     root->right->left = new node(6);
+    root->right->left->right = new node(9);
 
-    cout << LowestCommonAncestor(root, a, b)->data;
+    cout << LowestCommonAncestor(root, root->right->left->right, root->left->right)->data;
 }
