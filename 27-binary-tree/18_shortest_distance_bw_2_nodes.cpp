@@ -3,7 +3,7 @@
 Program to find distance between two nodes of a binary tree 
 
 Time Complexity -> O(N)
-Space Complexity -> O(1)
+Space Complexity -> O(N)
 
 
  **/

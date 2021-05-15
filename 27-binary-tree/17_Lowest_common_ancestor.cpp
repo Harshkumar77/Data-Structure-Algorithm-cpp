@@ -3,11 +3,11 @@
 Program to find lowest common ancestor in two nodes of a binary tree 
 
 Time Complexity  -> O(N)
-Space Complexity -> O(MAX(distance(node a) , distance(node b)))
+Space Complexity -> O(MAX(distance(node a) , distance(node b) , N))
 
 Space complexity here is caused to the path vector created
 
-Simpler code with better space complexity is given in 
+Simpler code 
 https://github.com/Harshkumar77/Data-Structure-Algorithm-cpp/blob/main/27-binary-tree/18_shortest_distance_bw_2_nodes.cpp
 
  **/

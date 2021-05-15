@@ -5,7 +5,7 @@ but
 -> Without using any other data structure and extra space
 
 Time Complexity -> O(N)
-Space Complexity -> O(1)
+Space Complexity -> O(N)
 
 
  **/

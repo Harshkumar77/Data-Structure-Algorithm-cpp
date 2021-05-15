@@ -3,7 +3,7 @@
 Program to find all the nodes from a node at distance k [Ancestor + subtree]
 
 Time Complexity -> O(N)
-Space Complexity -> O(1)
+Space Complexity -> O(N)
 
 
  **/
