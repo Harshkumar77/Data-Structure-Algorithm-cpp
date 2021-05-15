@@ -1,9 +1,9 @@
 /**
 
-Program to find all the nodes from a node at distance k [Ancestor + subtree]
+Program to find maximum of path possible in binary tree 
 
 Time Complexity -> O(N)
-Space Complexity -> O(1)
+Space Complexity -> O(N)
 
 
  **/
@@ -24,6 +24,16 @@ struct node
 
 int maxSumPath(node *root, int &s)
 {
+    /*
+        For every node we calculate 
+            1. its value // path contains only one node 
+            2. its value + max(left subtree path sum , right subtree path sum) // path ending at that node
+            3. it value + left subtee path sum + right subtree path sum // node is a part of the path
+
+            -> max(1,2,3) would be the ans
+            -> but max(1,2) would give the max sum of subtree ending at that node
+
+        */
     int ml = 0;
     int mr = 0;
     if (root->left)
