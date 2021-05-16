@@ -1,5 +1,11 @@
+/**
+ * Program to search a node
+ * 
+ * Time complexity -> O(log n)
+ * Space complexity -> O(log n)
+*/
+
 #include <iostream>
-#include <queue>
 using namespace std;
 
 struct node
@@ -19,21 +25,15 @@ struct node
     }
 };
 
-void printInorder(node *root)
-{
-    /*      Inorder of a BST is always *SORTED*    */
-    if (root == NULL)
-        return;
-    printInorder(root->left);
-    cout << root->data << ' ';
-    printInorder(root->right);
-}
-
 node *searchNodeInBST(node *root, int key)
 {
+    /*
+    Using properties of BST
+    */
     if (root->data == key)
         return root;
     if (root->left != NULL and root->data > key)
+        // if the key < current node data it must be on its left subtree
         return searchNodeInBST(root->left, key);
     return searchNodeInBST(root->right, key);
 }
@@ -53,7 +53,5 @@ int main()
     node *root = new node(6);
     root->left = new node(3, new node(1), new node(5, new node(4), NULL));
     root->right = new node(8, new node(7), new node(9));
-    printInorder(root);
-    cout << '\n'
-         << searchNodeInBST(root, 10)->data;
+    cout << searchNodeInBST(root, 10)->data;
 }
