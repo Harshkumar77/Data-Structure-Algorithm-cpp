@@ -9,6 +9,8 @@ using namespace std;
 *           3. No duplicates must be there in tree                      
 *
 *        Program to build BST from an array.
+*        Time complexity : O(N^2)
+*        Space complexity : O(N)
 */
 struct node
 {
@@ -68,6 +70,6 @@ void printInorder(node *root)
 
 int main()
 {
-    vector<int> v = {5, 1, 4, 3, 2, 7, 6};
+    vector<int> v = {7, 5, 4, 6, 8, 9};
     printInorder(buildBST(v));
 }
