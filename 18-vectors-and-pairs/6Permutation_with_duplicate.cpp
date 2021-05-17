@@ -27,18 +27,13 @@ int main()
     cin >> n;
     vector<int> num(n);
     for (auto &i : num)
-    {
         cin >> i;
-    }
     sort(num.begin(), num.end());
     vector<vector<int>> big;
     permute(num, big, 0);
     for (auto &i : big)
-    {
         for (auto &ii : i)
-        {
             cout << ii << " ";
-        }
-        cout << '\n';
-    }
+    cout << '\n';
+}
 }
