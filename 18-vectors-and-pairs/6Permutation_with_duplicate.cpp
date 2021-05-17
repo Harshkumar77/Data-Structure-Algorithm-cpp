@@ -36,4 +36,3 @@ int main()
             cout << ii << " ";
     cout << '\n';
 }
-}
