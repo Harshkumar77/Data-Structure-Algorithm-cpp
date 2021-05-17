@@ -10,7 +10,6 @@ void permute(vector<int> &num, vector<vector<int>> &big, int idx)
     }
     for (int i = idx; i < num.size(); i++)
     {
-
         if (i != idx and num[i] == num[i - 1])
         {
             continue;
