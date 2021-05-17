@@ -4,8 +4,8 @@
 using namespace std;
 /*
 *        Binary search tree is just normal binary tree                  
-*           1. Left node value must be less than the parent node            
-*           2. Right node value must be greater than the parent node        
+*           1. All the Left subtree's nodes value must be less than the parent node            
+*           2. All the Right subtree's nodes node value must be greater than the parent node        
 *           3. No duplicates must be there in tree                      
 *
 *        Program to build BST from an array.
