@@ -2,7 +2,7 @@
 #include <climits>
 using namespace std;
 /**
- * Program to build BST from its preorder sequence
+ * Program to build BST from its inorder sequence
  * 
  * Time complexity = O(n)
  * Space complexity = O(n)
@@ -25,66 +25,28 @@ struct node
     }
 };
 
-node *buildFromPreorder(int preorder[], int n, int &idx, int min = INT_MIN, int max = INT_MAX)
+node *buildFromSortedArray(int inorder[], int l, int r)
 {
-    /*
-
-    Intutiion :
-    In a node of a BST there would be a range for the nodes that can be present in its subtree
-
-    Example : 
-        5           * left subree of 5 can be in range (-♾ , 5) and right subtree of 5 can be in range (5,♾)
-       / \          * LS of 3 (-♾,3)   
-      3   7         * LS of 7 (5,7) RS of 7 (7,♾)
-     /   / \        *     
-    2   6   8       *     
-    Algorithm :
-
-    1. Creating root node the first element
-    2. Recursively add next consecutive element in the tree using the property
-    3. Then add elements to the right subtree recursively
-
-    
-    */
-    if (idx >= n)
+    if (l > r)
         return NULL;
-    int key = preorder[idx];
-    node *root;
-    if (key < max and key > min)
-    {
-        root = new node(key), idx++;
-        if (idx < n)
-            root->left = buildFromPreorder(preorder, n, idx, min, key);
-        if (idx < n)
-            root->right = buildFromPreorder(preorder, n, idx, key, max);
-    }
-
-    return root;
+    int mid = (l + r) / 2;
+    node *root = new node(inorder[mid]);
+    root->left = buildFromSortedArray(inorder, l, mid - 1);
+    root->right = buildFromSortedArray(inorder, mid + 1, r);
 }
 
-void printPreorder(node *root)
+void printInorder(node *root)
 {
     if (root == NULL)
         return;
+    printInorder(root->left);
     cout << root->data << ' ';
-    printPreorder(root->left);
-    printPreorder(root->right);
+    printInorder(root->right);
 }
 
 int main()
 {
-    /*
-    *         Creating this BST
-    *               _6_
-    *              /   \__
-    *            _3_      8
-    *           /   \    / \
-    *          1     5  7   9
-    *           \    /       
-    *            2  4
-    */
-    int preorder[] = {6, 3, 1, 2, 5, 6, 8, 7, 9};
-    int idx = 0;
-    node *root = buildFromPreorder(preorder, 9, idx);
-    printPreorder(root), cout << '\n';
+    int inorder[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    node *root = buildFromSortedArray(inorder, 0, sizeof(inorder) / sizeof(root[0]) - 1);
+    printInorder(root), cout << '\n';
 }
