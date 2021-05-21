@@ -26,7 +26,7 @@ struct node
 };
 /*
 1. Finding the middle of the array
-2. Left half of the array would contribute to left subtree and \
+2. Left half of the array would contribute to left subtree and
     right half would be right and the middle will become root node
 */
 node *buildFromSortedArray(int inorder[], int l, int r)
