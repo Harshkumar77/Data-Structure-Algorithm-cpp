@@ -1,9 +1,7 @@
 /**
- * Program to build all the possible BST from sorted sequence
- * (in this case we are using ranges but question can be easily modified by using sorted array)
- * 
- * Time Complexity :
- * 
+ * Program to find size of largest BST in a BT 
+ * Time Complexity : O(n)
+ * Space Complexity : O(n)
 */
 
 #include <iostream>
@@ -46,7 +44,11 @@ struct info
 };
 
 /**
+ * Creating a info structure to store the properties for each node , so that we dont have to traverse the 
+ * whole tree n^2 time for finding size again and again
  * 
+ * comparing info of left and right subtree to find info of current node 
+ *  
 */
 
 info largestBST(node *x)
@@ -57,10 +59,7 @@ info largestBST(node *x)
     info r = largestBST(x->right);
     bool isBST = l.isBST and r.isBST and l.maximum < x->data and r.minimum > x->data;
     int size;
-    if (isBST)
-        size = l.size + r.size + 1;
-    else
-        size = 0;
+    size = isBST ? l.size + r.size + 1 : 0;
     return info(isBST, min(x->data, min(l.minimum, r.minimum)), max(x->data, max(l.maximum, r.maximum)), size,
                 max(size, max(l.sizeLargestBST, r.sizeLargestBST)));
 }
@@ -68,8 +67,8 @@ int main()
 {
 
     /*
-    *         Creating this BST
-    *               _6_
+    *         Creating this BT
+    *               _-1_
     *              /   \__
     *            _3_      8
     *           /   \    / \
@@ -77,7 +76,7 @@ int main()
     *           \    /       
     *            2  4
     */
-    node *root1 = new node(6);
+    node *root1 = new node(-1);
     root1->left = new node(3, new node(1, NULL, new node(2)), new node(5, new node(4), NULL));
     root1->right = new node(8, new node(7), new node(9));
 
