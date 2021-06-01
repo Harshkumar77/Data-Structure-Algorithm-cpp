@@ -41,3 +41,10 @@ int main()
     printUnorderedSet(ums); // No order is maintained all the same elements are grouped
                             // together not even in order of insertions
 }
+/*
+Recived output :
+
+4 8 1 
+6 6 1 1 8 8 8 4 4 4
+
+*/

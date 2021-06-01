@@ -51,3 +51,22 @@ void printSet(set<int> s)
         cout << x << ' ';
     cout << '\n';
 }
+
+/*
+
+Recived Output :
+
+Traversing set :
+12 21 43 54 
+Traversing set :
+12 21 43 54 
+Traversing set in reverse order :
+54 43 21 12 
+12 21 23 32 43 54 98 
+21 23 32 54 98 
+98
+1
+32
+54
+
+*/

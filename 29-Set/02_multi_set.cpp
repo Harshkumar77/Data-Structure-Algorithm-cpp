@@ -25,3 +25,13 @@ void printSet(multiset<int> s)
         cout << x << ' ';
     cout << '\n';
 }
+
+/*
+
+Recived Output :
+  
+-2 3 3 12 12 23 
+-2 12 12 23 
+-2 12 23
+
+*/
