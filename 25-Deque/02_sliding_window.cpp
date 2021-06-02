@@ -16,10 +16,8 @@ int main()
     vector<int> ans(n - k + 1);
     int filled_till_here = 0;
     for (int i = 0; i < k; i++)
-    {
         if (a[i] > a[d.front()])
             d.pop_front(), d.push_back(i);
-    }
     ans[filled_till_here++] = (a[d.front()]);
     for (int i = k; i < n; i++)
     {
