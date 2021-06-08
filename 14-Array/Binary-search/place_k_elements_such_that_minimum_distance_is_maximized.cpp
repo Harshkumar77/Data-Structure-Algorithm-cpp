@@ -5,7 +5,7 @@
 /**
  * Program to find maximum minimum distance , while selecting k elements from given array
  * 
- * Time complexity :  O ( N log N)
+ * Time complexity :  O ( N log n) N = size_of_array n = maximum_of_array
  * 
  * Space complexity : O ( 1 )
 */
@@ -52,14 +52,14 @@ bool isFeasible(int mid, int K, int a[], int N)
  * 
  * Intution :
  * 
- *      Checking diffrent maximum minimum distances using binary search , then checking 
- *      if the given diffrence is even possible in array 
+ *      Checking diffrent maximum minimum distances using binary search , then checking increasing
+ *      till the maximum is found 
  * 
  * Algorithm :
  * 
  *      1. Sort the array
  *      2. Start looking for minimum maximum distance using binary search
- *      3. Initialy starting the diffrence with (a[0]+a[N-1])/2
+ *      3. Initialy starting the diffrence with (0+a[N-1])/2
  *      4. If the diffrence is feasible look for larger number
  *      5. If the diffrence isn't  feasible look for lower number
  *      6. The last feasible diffrence would be maximum minimum diffrence 
@@ -73,20 +73,16 @@ int MaximumMinimumDistanceOfKElements(int a[], int N, int K)
         return 0;
     if (K == 2)
         return a[N - 1] - a[0];
-    int l, r = a[N - 1], mid;
-    if (N % 2 == 0)
-        l = 1;
-    else
-        l = 0;
+    int l = 0, r = a[N - 1], mid, ans;
     while (l < r)
     {
         mid = (r + l) / 2;
         if (isFeasible(mid, K, a, N))
-            l = mid + 1; // checking for greater values
+            ans = mid, l = mid + 1; // checking for greater values
         else
             r = mid - 1; // checking for lesser values
     }
-    return mid;
+    return ans;
 }
 
 int main()
