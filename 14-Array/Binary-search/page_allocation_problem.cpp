@@ -63,3 +63,15 @@ int main()
         cin >> x;
     cout << MinimumMaximumPagesAllocated(a, N, S);
 }
+/*  
+
+Input : 
+
+4 2
+12 34 67 90
+
+Output :
+
+113
+
+*/
