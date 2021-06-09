@@ -15,23 +15,24 @@ using namespace std;
 */
 void func(int a[], int N, int K, int X)
 {
-    int l = 0, r = K - 1, finalL, finalR, sum = accumulate(a, a + K, 0), maxSum = INT16_MIN;
+    int l = 1, r = K, finalL, finalR, sum = accumulate(a, a + K, 0), maxSum = INT16_MIN;
     // used aacumulate function to calcute sum of first k elements i.e. 1st window
     if (sum < X)
     {
         finalL = 0, finalR = K - 1;
         maxSum = sum;
     }
-    while (r < N - 1)
+    while (r < N)
     {
-        sum += a[++r] - a[l++]; // Updating window
-        if (sum < X)
+        sum += a[r] - a[l - 1]; // Updating window
+        if (sum < X and sum > maxSum)
         {
             finalL = l, finalR = r;
             maxSum = max(maxSum, sum);
         }
+        r++, l++;
     }
-    for (int i = l - 1; i < r; i++)
+    for (int i = finalL; i <= finalR; i++)
         cout << a[i] << ' ';
     cout << '\n';
     cout << "Sum of maximum Subarray of size K and less than X : " << maxSum;
@@ -50,12 +51,12 @@ int main()
 
 Input :
 
-5 3 5
+5 3 8
 3 4 1 2 1
 
 Output :
 
 4 1 2 
-Sum of maximum Subarray of size K and less than X : 4
+Sum of maximum Subarray of size K and less than X : 7
 
 */
