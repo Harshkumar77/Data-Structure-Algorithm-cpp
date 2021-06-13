@@ -16,7 +16,7 @@ using namespace std;
 void func(int a[], int N, int K, int X)
 {
     int l = 1, r = K, finalL, finalR, sum = accumulate(a, a + K, 0), maxSum = INT16_MIN;
-    // used aacumulate function to calcute sum of first k elements i.e. 1st window
+    // used accumulate function to calcute sum of first k elements i.e. 1st window
     if (sum < X)
     {
         finalL = 0, finalR = K - 1;
