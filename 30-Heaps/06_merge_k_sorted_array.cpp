@@ -47,8 +47,6 @@ int main()
             cin >> y;
     }
     for (int x : merge(v, K))
-    {
         cout << x << ' ';
-    }
     return 0;
 }
