@@ -12,7 +12,8 @@ using namespace std;
 
 int main()
 {
-    map<string, int> m;
+    map<string, int> m = {{"Light", 0}, {"Pro", 22}};
+
     m.insert({"Harsh", 7}); // "Harsh" is key and 7 is value
     m.insert({"Quote", 10});
     m.insert({"Gwen", 12});
