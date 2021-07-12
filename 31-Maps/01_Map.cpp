@@ -6,7 +6,9 @@
  * 
  * All operations are in log N TC
  * 
- * The map is sorted in manner of key
+ * The map is sorted in manner of key 
+ * 
+ * It is implemented in STL using red black tree
 */
 using namespace std;
 
