@@ -20,8 +20,7 @@ int main()
 {
     int size, wi;
     cin >> size >> wi;
-    int v[size];
-    int w[size];
+    int v[size], w[size];
     for (int &i : v)
         cin >> i;
     for (int &i : w)
