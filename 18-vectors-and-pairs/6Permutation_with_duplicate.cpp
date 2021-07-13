@@ -10,7 +10,7 @@ void permute(vector<int> &num, vector<vector<int>> &big, int idx)
     }
     for (int i = idx; i < num.size(); i++)
     {
-        if (i != idx and num[i] == num[i - 1])
+        if (i != idx and num[i] == num[idx])
         {
             continue;
         }
@@ -27,11 +27,13 @@ int main()
     vector<int> num(n);
     for (auto &i : num)
         cin >> i;
-    sort(num.begin(), num.end());
+    // sort(num.begin(), num.end());
     vector<vector<int>> big;
     permute(num, big, 0);
     for (auto &i : big)
+    {
         for (auto &ii : i)
             cout << ii << " ";
-    cout << '\n';
+        cout << '\n';
+    }
 }
