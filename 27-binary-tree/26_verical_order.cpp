@@ -1,7 +1,12 @@
 #include <iostream>
 #include <map>
 #include <vector>
-//TODO: Add cmnt
+/**
+ * Program to print binary tree in vertical order
+ * TC - O ( N log N ) : N - number of nodes
+ * SC - O ( N )
+*/
+
 using namespace std;
 
 struct node
@@ -19,7 +24,12 @@ struct node
         this->left = left, this->right = right;
     }
 };
-
+/**
+ * Intution :
+ * Storing all the nodes according to the distance from the root
+ * The nodes in sorted distance sequence will give the vertical order of binary 
+ * tree
+*/
 map<int, vector<int>> VerticalOrder(node *root, int dist = 0)
 {
     static map<int, vector<int>> m;

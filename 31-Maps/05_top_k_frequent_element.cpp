@@ -2,9 +2,19 @@
 #include <unordered_map>
 #include <vector>
 #include <algorithm>
-
+/**
+ * Program to find K most frequent elements
+ * TC - O(NlogN)
+ * SC - O(max(unique(N)))
+*/
 using namespace std;
-// TODO:Add cmts
+
+/**
+ * Intution :
+ *  Storing all the unique elements with their frequency
+ *  returning the elements with most frequency
+*/
+
 vector<int> KfrequentElements(vector<int> v, int N, int K)
 {
     unordered_map<int, int> u;
@@ -15,8 +25,9 @@ vector<int> KfrequentElements(vector<int> v, int N, int K)
         srt.push_back({x.second, x.first});
     sort(srt.rbegin(), srt.rend());
     vector<int> top;
-    for (int i = 0; i < K; i++)
+    for (int i = 0; i < K and i < srt.size(); i++)
         top.push_back(srt[i].second);
+    top.shrink_to_fit();
     return top;
 }
 

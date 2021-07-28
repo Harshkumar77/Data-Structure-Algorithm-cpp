@@ -1,8 +1,13 @@
 #include <iostream>
 #include <unordered_map>
-
+/**
+ * Program to count frequency of elements in an array
+ * TC - O(N)
+ * SC - O(N)
+*/
 void printFx(int a[], int N)
 {
+    // increasing the frequency of each element in map
     std::unordered_map<int, int> um;
     for (int i = 0; i < N; i++)
         um[a[i]]++;
@@ -19,4 +24,3 @@ int main()
         std::cin >> x;
     printFx(a, N);
 }
-//TODO: Add cmnt

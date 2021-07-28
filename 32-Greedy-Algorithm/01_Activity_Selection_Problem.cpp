@@ -26,7 +26,7 @@ int main()
 {
     int n;
     cin >> n;
-    vector<pair<int, int>> a(n, {2, 1});
+    vector<pair<int, int>> a(n);
     for (pair<int, int> &x : a)
         cin >> x.first >> x.second;
     cout << "Maximum activities can be performed : " << maxActivity(a, n);
