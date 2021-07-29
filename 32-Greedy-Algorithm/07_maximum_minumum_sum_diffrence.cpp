@@ -1,12 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
-// TODO: so add cmnts chtmrike
+
+/***
+ * Program to find maximum and minimum of abs( diffrence of sum by spliting array into 2 parts )
+ * TC - O(N log N)
+ * SC - O(1)
+ */
+
+/**
+ * For finding maximum we need to make one half of array as max as possible and other half as minimum as possible
+ */
+
 int maxSum(int a[], int n)
 {
     sort(a, a + n);
     return abs(accumulate(a + n / 2, a + n, 0) - accumulate(a, a + n / 2, 0));
 }
 
+/**
+ * For finding minimum we need to keep both half of array sum comparable
+ */
 int minSum(int a[], int n)
 {
     sort(a, a + n);

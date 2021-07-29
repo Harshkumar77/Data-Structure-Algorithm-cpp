@@ -1,8 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// Problem EXPEDI on spoj
 #define int long long
-// TODO: Add cmntss u lazy
+
+// Intution : When fuel reaches zero take the maximum fuel from the previously covered station
+
 void solve()
 {
     int N;

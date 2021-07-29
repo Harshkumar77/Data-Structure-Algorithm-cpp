@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-// TODO:add cmnt plss
 using namespace std;
 
 bool comp(pair<int, int> p1, pair<int, int> p2)
