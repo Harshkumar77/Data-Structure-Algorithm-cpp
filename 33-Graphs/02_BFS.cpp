@@ -2,6 +2,7 @@
 #include <vector>
 #include <queue>
 using namespace std;
+
 /**
  * Traverse graph is BFS manner from an adjacency list
 */
@@ -22,7 +23,6 @@ void BFS(vector<vector<int>> adjl, int top)
                 q.push(x);
                 vis[x] = true;
             }
-
         cout << cur << ' ';
     }
     cout << '\n';
@@ -32,10 +32,12 @@ int main()
 {
     vector<vector<int>> adjl = {
         {},
-        {2, 3, 5},
-        {1, 4, 5},
-        {1},
-        {5, 3},
-        {1, 2, 4}};
-    BFS(adjl, 5);
+        {2, 3},
+        {1, 4},
+        {1, 5},
+        {2, 5, 6},
+        {3, 4, 6},
+        {4, 5, 7},
+        {6}};
+    BFS(adjl, 1);
 }
