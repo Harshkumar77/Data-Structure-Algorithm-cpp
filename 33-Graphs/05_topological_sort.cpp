@@ -23,7 +23,7 @@ vector<int> toposort(vector<vector<int>> &adj)
             // cout << 'i' << ' ' << i << ' ';
             visited[i] = true;
             dfs(i, adj, visited, toposortorder);
-                }
+        }
     reverse(toposortorder.begin(), toposortorder.end());
     return toposortorder;
 }
