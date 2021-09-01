@@ -24,7 +24,6 @@ void dfs(int node, vector<vector<edge>> &adj, vector<bool> &visited, vector<int>
             visited[x.to] = true, dfs(x.to, adj, visited, toposortorder);
     toposortorder.push_back(node);
 }
-
 vector<int> toposort(vector<vector<edge>> &adj)
 {
     vector<int> toposortorder;
@@ -38,7 +37,6 @@ vector<int> toposort(vector<vector<edge>> &adj)
     reverse(toposortorder.begin(), toposortorder.end());
     return toposortorder;
 }
-
 vector<int> shortest_path(vector<vector<edge>> &adj, int from)
 {
     int n = adj.size();
@@ -61,7 +59,6 @@ vector<int> shortest_path(vector<vector<edge>> &adj, int from)
     }
     return dist;
 }
-
 int main()
 {
     vector<vector<edge>> adj = {
