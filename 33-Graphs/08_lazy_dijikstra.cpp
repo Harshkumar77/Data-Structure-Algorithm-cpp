@@ -35,6 +35,7 @@ vector<int> shortest_path(vector<vector<edge>> adj, int from)
         int j = 0;
         for (edge e : adj[top.second])
         {
+
             dist[e.to] = min(dist[e.to], dist[top.second] + adj[top.second][j].weight);
             pq.push({dist[e.to], e.to});
             j++;
