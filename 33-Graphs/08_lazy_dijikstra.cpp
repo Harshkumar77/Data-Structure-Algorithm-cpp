@@ -15,7 +15,7 @@ public:
     }
 };
 
-vector<int> shortest_path(vector<vector<edge>> adj, int from)
+vector<int> shortest_path_distance(vector<vector<edge>> adj, int from)
 {
     // shortest path using lazy implementation of dijikstra algorithm
     int n = adj.size();
@@ -27,22 +27,17 @@ vector<int> shortest_path(vector<vector<edge>> adj, int from)
     while (not pq.empty())
     {
         pair<int, int> top = pq.top();
+        pq.pop();
         if (dist[top.second] < top.first)
-        {
-            pq.pop();
             continue;
-        }
         int j = 0;
         for (edge e : adj[top.second])
         {
-
             dist[e.to] = min(dist[e.to], dist[top.second] + adj[top.second][j].weight);
             pq.push({dist[e.to], e.to});
             j++;
         }
-        pq.pop();
     }
-
     return dist;
 }
 
@@ -59,7 +54,7 @@ int main()
         {edge(6, 1), edge(9, 3)},
         {edge(7, 1), edge(3, 3)},
         {}};
-    vector<int> dist = shortest_path(adj, 8);
+    vector<int> dist = shortest_path_distance(adj, 8);
     for (int i = 0; i < dist.size(); i++)
     {
         cout << i << " -> " << dist[i] << '\n';
