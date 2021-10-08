@@ -3,6 +3,7 @@
 #include <queue>
 #include <stack>
 using namespace std;
+// shortest path using lazy implementation of dijikstra algorithm
 
 class edge
 {
@@ -16,9 +17,17 @@ public:
     }
 };
 
+/**
+ * Intution : 
+ *      from the from vertice move toward the shortest vertice greedly to find the 
+ *      to vertice in shortest distance
+ * 
+ *      Algorithm is going to cover all the graph so that is the to node is reached 
+ *      firstly in longer distance it will be corrected futherly
+ */
+
 void shortest_path_distance(vector<vector<edge>> adj, int from, int to)
 {
-    // shortest path using lazy implementation of dijikstra algorithm
     int n = adj.size();
     vector<int> dist(n, INT16_MAX);
     vector<int> prev(n, -1);
@@ -30,6 +39,8 @@ void shortest_path_distance(vector<vector<edge>> adj, int from, int to)
     {
         pair<int, int> top = pq.top();
         pq.pop();
+        // The path choosed here is by default going to be longer because
+        // a shorter path has been already discoverd paasing through  this node
         if (dist[top.second] < top.first)
             continue;
         int j = 0;
