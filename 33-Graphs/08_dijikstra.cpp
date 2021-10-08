@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <stack>
 using namespace std;
 
 class edge
@@ -15,11 +16,12 @@ public:
     }
 };
 
-vector<int> shortest_path_distance(vector<vector<edge>> adj, int from)
+void shortest_path_distance(vector<vector<edge>> adj, int from, int to)
 {
     // shortest path using lazy implementation of dijikstra algorithm
     int n = adj.size();
     vector<int> dist(n, INT16_MAX);
+    vector<int> prev(n, -1);
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     // { dist , vertice}
     dist[from] = 0;
@@ -33,12 +35,29 @@ vector<int> shortest_path_distance(vector<vector<edge>> adj, int from)
         int j = 0;
         for (edge e : adj[top.second])
         {
-            dist[e.to] = min(dist[e.to], dist[top.second] + adj[top.second][j].weight);
-            pq.push({dist[e.to], e.to});
+            int newDis = dist[top.second] + adj[top.second][j].weight;
+            if (newDis < dist[e.to])
+            {
+                dist[e.to] = dist[top.second] + adj[top.second][j].weight;
+                pq.push({dist[e.to], e.to});
+                prev[e.to] = top.second;
+            }
             j++;
         }
     }
-    return dist;
+    if (dist[to] == INT16_MAX)
+        cout << to << " in not rechable" << '\n';
+    else
+    {
+        cout << "distance to " << to << " = " << dist[to] << '\n';
+        stack<int> path;
+        for (int x = prev[to]; x != from; x = prev[x])
+            path.push(x);
+        cout << from << " -> ";
+        while (not path.empty())
+            cout << path.top() << " -> ", path.pop();
+        cout << to << "\n";
+    }
 }
 
 int main()
@@ -54,10 +73,8 @@ int main()
         {edge(6, 1), edge(9, 3)},
         {edge(7, 1), edge(3, 3)},
         {}};
-    vector<int> dist = shortest_path_distance(adj, 8);
-    for (int i = 0; i < dist.size(); i++)
-    {
-        cout << i << " -> " << dist[i] << '\n';
-    }
+    shortest_path_distance(adj, 8, 4);
+    shortest_path_distance(adj, 8, 5);
+    shortest_path_distance(adj, 8, 1);
     return 0;
 }
